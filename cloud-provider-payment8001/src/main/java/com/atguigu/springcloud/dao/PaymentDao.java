@@ -17,7 +17,7 @@ public interface PaymentDao {
      * @param payment 支付实体
      * @return id
      */
-    public Long create(Payment payment);
+    public int create(Payment payment);
 
     /**
      * 根据id查询

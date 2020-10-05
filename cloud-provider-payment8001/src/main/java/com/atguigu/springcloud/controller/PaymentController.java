@@ -24,11 +24,11 @@ public class PaymentController {
 
 
     @PostMapping(value = "/create")
-    public CommonResult<Long> create(Payment payment) {
-        Long result = paymentService.create(payment);
+    public CommonResult<Long> create(@RequestBody Payment payment) {
+        int result = paymentService.create(payment);
         log.info("--------插入成功：" + result);
         if (result > 0) {
-            return new CommonResult<Long>(200, "插入数据库成功", result);
+            return new CommonResult<Long>(200, "插入数据库成功", payment.getId());
         } else {
             return new CommonResult<Long>(444, "插入数据库失败", null);
         }
