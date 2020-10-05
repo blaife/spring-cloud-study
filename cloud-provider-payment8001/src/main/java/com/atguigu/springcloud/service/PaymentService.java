@@ -15,7 +15,7 @@ public interface PaymentService {
      * @param payment 支付实体
      * @return id
      */
-    public int create(Payment payment);
+    public Long create(Payment payment);
 
     /**
      * 根据id查询
