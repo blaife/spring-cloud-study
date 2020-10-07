@@ -76,6 +76,14 @@ eureka:
 ```
 - client:
 ```yaml
-
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka
 ```
+
+#### 服务集群配置
+
+1. http路径填写： `public static final String PAYMENT_URL = "http://CLOUD-PAYMENT-SERVICE";`
+2. restTemplate： 使用 `@LoadBalanced` 注解赋予RestTemplate负载均衡的能力
 
