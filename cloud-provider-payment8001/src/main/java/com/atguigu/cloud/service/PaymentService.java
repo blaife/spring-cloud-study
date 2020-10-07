@@ -1,6 +1,6 @@
-package com.atguigu.springcloud.service;
+package com.atguigu.cloud.service;
 
-import com.atguigu.springcloud.entities.Payment;
+import com.atguigu.cloud.entities.Payment;
 import org.apache.ibatis.annotations.Param;
 
 /**

@@ -1,4 +1,4 @@
-package com.atguigu.springcloud.config;
+package com.atguigu.cloud.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

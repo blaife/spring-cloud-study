@@ -9,29 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-consumer-order80</artifactId>
+    <artifactId>cloud-api-commons</artifactId>
 
     <dependencies>
-
-        <!-- 引入自己编写的api通用包 -->
-        <dependency>
-            <groupId>com.atguigu.cloud</groupId>
-            <artifactId>cloud-api-commons</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
-        <!-- web -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <!-- 定期监控 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-
         <!-- 热部署 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -47,11 +27,10 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- 单元测试 -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.1.0</version>
         </dependency>
     </dependencies>
 

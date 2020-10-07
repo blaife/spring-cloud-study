@@ -1,17 +1,16 @@
-package com.atguigu.springcloud;
+package com.atguigu.cloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * @author Blaife
- * @description 主启动类
- * @date 2020/10/4 21:25
+ * @description 订单主启动类
+ * @date 2020/10/5 17:01
  */
 @SpringBootApplication
-public class PaymentMain8001 {
+public class OrderMain80 {
     public static void main(String[] args) {
-        SpringApplication.run(PaymentMain8001.class, args);
+        SpringApplication.run(OrderMain80.class, args);
     }
-
 }
