@@ -137,3 +137,42 @@ eureka:
     lease-renewal-interval-in-seconds: 1 # Eureka客户端向服务端发送心跳的时间间隔 默认为30s
     lease-expiration-duration-in-seconds: 2 # Eureka在最后一次接收到心跳的额等待时间 默认为90s
 ```
+
+### Zookeeper 
+
+#### 安装
+```
+# 我安装的位置是/usr/local/zookeeper/
+
+# 1. 下载文件(下载自己想要的版本)
+http://apache.fayea.com/zookeeper/zookeeper-3.5.8/apache-zookeeper-3.5.8-bin.tar
+# 2. 解压文件
+tar –zvxf zookeeper-3.4.6.tar.gz zookeeper-3.5.8
+# 3. 创建目录 在解压之后的文件中
+mkdir data
+mkdir log
+# 3. 基本配置
+# zoo_sample.cfg 拷贝为 zoo.cfg， 对zoo.cfg 进行修改
+dataDir=/usr/local/zookeeper/zookeeper-3.5.8/data
+dataLogDir=/usr/local/zookeeper/zookeeper-3.5.8/logs
+```
+
+#### 基本指令
+```
+./zkServer.sh start # 启动zk服务
+./zkServer.sh status # 查看服务状态
+./zkServer.sh stop # 关闭zk服务
+./zkCli.sh # 客户端连接
+help # 查看客户端帮助命令
+```
+
+#### 服务接入 
+```yaml
+spring:
+  application:
+    name: cloud-provider-payment
+  cloud:
+    zookeeper:
+      # 2181 是zookeeper的默认端口号
+      connect-string: 47.111.234.189:2181
+```
