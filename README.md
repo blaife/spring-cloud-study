@@ -176,3 +176,23 @@ spring:
       # 2181 是zookeeper的默认端口号
       connect-string: 47.111.234.189:2181
 ```
+
+### consul
+
+#### 安装
+
+- 官网：[https://www.consul.io/downloads](https://www.consul.io/downloads)
+- windows: 下载完成后得到一个压缩包，解压之后是一个exe文件，双击执行。之后在当前目录下执行cmd指令`consul agent -dev -ui -node=cy`。访问`http://localhost:8500/`.
+
+#### 服务接入
+```yaml
+spring:
+  application:
+    name: cloud-provider-payment
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+```
