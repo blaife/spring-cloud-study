@@ -35,7 +35,14 @@ public class OrderController {
 
     @GetMapping("/get/{id}")
     public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id) {
-        log.info("消费者调用查询支付记录接口");
+        log.info("消费者调用查询支付记录接口: object");
         return restTemplate.getForObject(PAYMENT_URL + "/payment/get/" + id, CommonResult.class);
     }
+
+    @GetMapping("/getEntity/{id}")
+    public CommonResult<Payment> getPaymentById2(@PathVariable("id") Long id) {
+        log.info("消费者调用查询支付记录接口: entity");
+        return restTemplate.getForEntity(PAYMENT_URL + "/payment/get/" + id, CommonResult.class).getBody();
+    }
+
 }
