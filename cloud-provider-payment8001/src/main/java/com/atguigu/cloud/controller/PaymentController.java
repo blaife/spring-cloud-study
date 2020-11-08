@@ -80,4 +80,13 @@ public class PaymentController {
         }
         return this.discoveryClient;
     }
+
+    /**
+     * 获取 LB (LoadBalance)
+     * @return
+     */
+    @GetMapping(value = "/lb")
+    public String getPaymentLB() {
+        return serverPort;
+    }
 }

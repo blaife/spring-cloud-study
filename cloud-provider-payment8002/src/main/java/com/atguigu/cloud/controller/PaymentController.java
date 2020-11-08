@@ -48,4 +48,13 @@ public class PaymentController {
         }
     }
 
+    /**
+     * 获取 LB (LoadBalance)
+     * @return
+     */
+    @GetMapping(value = "/lb")
+    public String getPaymentLB() {
+        return serverPort;
+    }
+
 }

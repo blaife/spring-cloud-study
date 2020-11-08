@@ -2,12 +2,17 @@ package com.atguigu.cloud.controller;
 
 import com.atguigu.cloud.entities.CommonResult;
 import com.atguigu.cloud.entities.Payment;
+import com.atguigu.cloud.lb.LoadBalancer;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
+import java.net.URI;
+import java.net.URL;
+import java.util.List;
 
 /**
  * @author Blaife
@@ -26,6 +31,11 @@ public class OrderController {
     @Resource
     private RestTemplate restTemplate;
 
+    @Resource
+    private LoadBalancer loadBalancer;
+
+    @Resource
+    private DiscoveryClient discoveryClient;
 
     @PostMapping("/create")
     public CommonResult<Long> create(Payment payment) {
@@ -45,4 +55,15 @@ public class OrderController {
         return restTemplate.getForEntity(PAYMENT_URL + "/payment/get/" + id, CommonResult.class).getBody();
     }
 
+    @GetMapping(value = "/lb")
+    public String getPaymentLB() {
+        List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
+        if (instances == null || instances.size() <= 0){
+            return null;
+        }
+        ServiceInstance serviceInstance = loadBalancer.instance(instances);
+        URI uri = serviceInstance.getUri();
+        return  restTemplate.getForObject(uri + "/payment/lb",String.class);
+
+    }
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.atguigu.cloud.dao.PaymentDao">
+
+    <resultMap id="PaymentResult" type="com.atguigu.cloud.entities.Payment" />
+    <parameterMap id="PaymentParameter" type="com.atguigu.cloud.entities.Payment" />
+
+    <!-- useGeneratedKeys 返回生成的主键id  keyProperty 主键id -->
+    <!-- 创建一条支付记录 -->
+    <insert id="create" parameterMap="PaymentParameter" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO payment (serial) VALUES (#{serial}) ;
+    </insert>
+
+    <!-- 通过支付id获取支付流程信息 -->
+    <select id="getPaymentById" parameterType="long" resultMap="PaymentResult">
+        SELECT * FROM payment WHERE id = #{id} ;
+    </select>
+</mapper>
