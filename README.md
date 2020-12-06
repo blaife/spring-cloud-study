@@ -4,3 +4,4 @@
 
 - [服务注册与发现 Eureka、Zookeeper、Consul](/doc/registrationCenter.md)
 - [服务调用 Ribbon、OpenFeign](/doc/serviceCall.md)
+- [服务熔断、降级 Hystrix](/doc/hystrixDocument.md)
