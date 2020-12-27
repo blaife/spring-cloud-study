@@ -6,3 +6,4 @@
 - [服务调用 Ribbon、OpenFeign](/doc/serviceCall.md)
 - [服务熔断、降级 Hystrix](/doc/hystrixDocument.md)
 - [网关 GateWay](/doc/gatewayDocument.md)
+- [配置中心 Config](/doc/configDocument.md)
