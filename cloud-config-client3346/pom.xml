@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-config-center3344</artifactId>
+    <artifactId>cloud-config-client3346</artifactId>
 
     <dependencies>
         <!-- bus -->
@@ -21,7 +21,7 @@
         <!-- config -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-config-server</artifactId>
+            <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
 
         <!-- eureka-client -->
@@ -71,5 +71,4 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
 </project>
