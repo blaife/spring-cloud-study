@@ -23,6 +23,6 @@ public class ReceiveMessageListenerController {
 
     @StreamListener(Sink.INPUT)
     public void input(Message<String> message) {
-        log.info("消费者_one，--------> " + message.getPayload() + "\t port:" + serverPort);
+        log.info("消费者_two，--------> " + message.getPayload() + "\t port:" + serverPort);
     }
 }
