@@ -64,6 +64,12 @@ public class OrderController {
         ServiceInstance serviceInstance = loadBalancer.instance(instances);
         URI uri = serviceInstance.getUri();
         return  restTemplate.getForObject(uri + "/payment/lb",String.class);
-
     }
+
+    @GetMapping(value = "/zipkinTest")
+    public String paymentZipkin() {
+        String result = restTemplate.getForObject("http://localhost:8001" + "/payment/zipkinTest/", String.class);
+        return result;
+    }
+
 }

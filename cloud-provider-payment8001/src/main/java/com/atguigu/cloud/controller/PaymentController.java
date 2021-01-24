@@ -104,4 +104,9 @@ public class PaymentController {
         }
         return serverPort;
     }
+
+    @GetMapping(value = "/zipkinTest")
+    public String paymentZipkin() {
+        return "hi !!! ";
+    }
 }
