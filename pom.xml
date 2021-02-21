@@ -35,6 +35,7 @@
         <module>cloud-ali-provider-payment9001</module>
         <module>cloud-ali-provider-payment9002</module>
         <module>cloud-ali-consumer-order9011</module>
+        <module>cloud-ali-config-client3377</module>
     </modules>
 
 
