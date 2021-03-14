@@ -10,4 +10,5 @@
 - [消息总线 Bus](/doc/busDocument.md)
 - [消息驱动 Stream](/doc/streamDocument.md)
 - [链路追踪 Sleuth](/doc/sleuthDocument.md)
-- [SpringCloud Alibaba Nacos](/doc/nacosDocument.md)
+- [服务注册与配置 Nacos](/doc/nacosDocument.md)
+- [熔断与限流 Sentinel](/doc/sentinelDocument.md)
