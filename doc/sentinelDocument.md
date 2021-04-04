@@ -185,13 +185,77 @@ public class CustomerBlockHandler {
 - blockHandler优先
 - exceptionToIgnore：异常忽略
 
-***问题：Ribbon和Feign的区别，以及使用场景***
-***问题：熔断和降级的区别是什么***
+***问题1：Ribbon和Feign的区别，以及使用场景***  
+***问题2：熔断和降级的区别是什么***
+
+|***对比内容***|***Sentinel***|***Hystrix***|
+|---|---|---|
+|隔离策略|信号量隔离（并发线程数限流）|线程池隔离/信号量隔离|
+|熔断降级策略|基于响应时间、异常比率、异常数|基于异常比率|
+|实时统计实现|滑动窗口（LeapArray）|滑动窗口（基于RxJava）|
+|动态规则配置|支持多种数据源|支持多种数据源|
+|扩展性|多个扩展点|插件的形式|
+|基于注解的支持|支持|支持|
+|限流|基于QPS，支持调用关系的限流|有限的支持|
 
 ## Sentinel持久化
 
 可以持久化入mysql，redis，nacos，文件等各种媒介
 
-### Nacos
+### 持久化配置到Nacos
 
-持久化入Nacos
+1. pom
+    ```xml
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-datasource-nacos</artifactId>
+        </dependency>
+    ```
+2. yaml
+    ```yaml
+    spring:
+      application:
+        name: ali-sentinel-server
+      cloud:
+        nacos:
+          discovery:
+            server-addr: localhost:8848
+        sentinel:
+          transport:
+            dashboard: localhost:8080
+            # 默认8719端口，加入被占用会自动从8719开始依次+1扫描，直至找到未被占用的端口。
+            port: 8719
+          datasource:
+            ds1:
+              nacos:
+                server-addr: localhost:8848
+                dataId: ali-sentinel-server
+                groupId: DEFAULT_GROUP
+                data-type: json
+                rule-type: flow
+    ```
+3. nacos
+    添加nacos配置
+    ```json
+    [
+        {
+            "resource":"/rateLimit/byUrl",
+            "limitApp":"default",
+            "grade":"1",
+            "count":"1",
+            "strategy":0,
+            "controlBehavior":0,
+            "clusterMode":false
+        }
+    ]
+    ```
+    ```text
+    释意：
+    resource: 资源名称
+    limitApp: 来源应用
+    grade: 阈值类型 0-线程数 1-QPS
+    count: 单机阈值
+    strategy: 流控模式 0-直接 1-关联 2-链路
+    controlBehavior: 流控效果 0-快速失败 1-Warm Up 2-排队等待
+    clusterMode: 是否集群
+    ```
