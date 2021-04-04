@@ -177,3 +177,21 @@ public class CustomerBlockHandler {
 - SphU：定义资源
 - Trace：定义统计
 - ContextUtil；定义上下文
+
+## Sentinel 服务熔断
+
+- fallback：可以处理运行时异常
+- blockHandler：只负责Sentinel控制台的配置违规
+- blockHandler优先
+- exceptionToIgnore：异常忽略
+
+***问题：Ribbon和Feign的区别，以及使用场景***
+***问题：熔断和降级的区别是什么***
+
+## Sentinel持久化
+
+可以持久化入mysql，redis，nacos，文件等各种媒介
+
+### Nacos
+
+持久化入Nacos
