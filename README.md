@@ -12,3 +12,4 @@
 - [链路追踪 Sleuth](/doc/sleuthDocument.md)
 - [服务注册与配置 Nacos](/doc/nacosDocument.md)
 - [熔断与限流 Sentinel](/doc/sentinelDocument.md)
+- [分布式事务 Seata](/doc/seataDocument.md)
