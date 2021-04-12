@@ -118,3 +118,8 @@ http://seata.io/zh-cn/blog/download.html
 先启动nacos,再启动seata。  
 出现 `extension by class[io.seata.discovery.registry.nacos.NacosRegistryProvider]`表示启动成功。  
 可以在Nacos服务列表中看到对应数据。  
+
+## 案例内容
+
+[业务数据库准备](../sql)
+
