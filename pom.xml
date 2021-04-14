@@ -40,6 +40,7 @@
         <module>cloud-ali-provider-payment9003</module>
         <module>cloud-ali-provider-payment9004</module>
         <module>cloud-ali-consumer-order9012</module>
+        <module>cloud-ali-seata-order2001</module>
     </modules>
 
 
@@ -86,7 +87,7 @@
                 <scope>import</scope>
             </dependency>
 
-             <!--mysql-->
+            <!--mysql-->
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
