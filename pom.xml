@@ -41,6 +41,8 @@
         <module>cloud-ali-provider-payment9004</module>
         <module>cloud-ali-consumer-order9012</module>
         <module>cloud-ali-seata-order2001</module>
+        <module>cloud-ali-seata-storage2002</module>
+        <module>cloud-ali-seata-account2003</module>
     </modules>
 
 

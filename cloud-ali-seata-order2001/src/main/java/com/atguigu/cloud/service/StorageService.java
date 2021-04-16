@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @description TODO
  * @date 2021/4/14 22:13
  */
-@FeignClient(value = "seata-storage-service")
+@FeignClient(value = "seata-storage-server")
 public interface StorageService {
 
     @PostMapping(value = "/storage/decrease")
