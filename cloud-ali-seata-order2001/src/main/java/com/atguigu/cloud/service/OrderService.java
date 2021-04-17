@@ -1,7 +1,6 @@
 package com.atguigu.cloud.service;
 
 import com.atguigu.cloud.domain.Order;
-import org.springframework.stereotype.Service;
 
 /**
  * @author Blaife
